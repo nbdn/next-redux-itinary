@@ -1,0 +1,4 @@
+package.json
+package-lock.json
+./pages/index.js
+*.md
