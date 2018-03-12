@@ -27,7 +27,6 @@ import Page from '../components/Page';
 import ButtonOutlineWithCustomStyles from '../components/styled/ButtonOutlineWithCustomStyles';
 import ButtonWithCustomStyles from '../components/styled/ButtonWithCustomStyles';
 
-
 // Redux
 import {
   addAddressStep,

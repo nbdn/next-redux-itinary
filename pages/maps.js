@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-
 // Containers
 import MapsContainer from '../containers/Maps';
 import MapsForm from '../containers/MapsForm';
@@ -10,7 +9,7 @@ import MapsForm from '../containers/MapsForm';
 import GoogleScriptProvider from '../components/GoogleScriptProvider';
 
 // Styles
-import MapStyles from './styles/MapsStyles';
+import './styles/MapsStyles';
 
 class Maps extends Component {
   state = {

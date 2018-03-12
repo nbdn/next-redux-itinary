@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Input } from 'rebass';
 
-
 const InputWithCustomStyles = styled(Input)`
   margin: 7px 0px;
   padding: 10px;

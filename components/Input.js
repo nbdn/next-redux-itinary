@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { Absolute, Flex, Label, Relative, Text } from 'rebass';
 
-
 import InputWithCustomStyles from './styled/InputWithCustomStyles';
 
 const CustomInput = ({

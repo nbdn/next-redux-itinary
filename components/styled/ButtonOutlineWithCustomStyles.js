@@ -3,11 +3,11 @@ import { ButtonOutline } from 'rebass';
 
 import Colors from '../../theme/Colors';
 
-const ButtonOutlineWithCustomStyles = styled(ButtonOutline) `
+const ButtonOutlineWithCustomStyles = styled(ButtonOutline)`
   :hover {
     border-color: ${Colors.primary};
     color: ${Colors.primary};
-    opacity: 0.6
+    opacity: 0.6;
   }
 `;
 
