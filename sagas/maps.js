@@ -96,7 +96,8 @@ function* fetchOptimizeItinary({
         const inputId = (Date.now() + i).toString();
         const parsedPlace = {
           ...places.find(p => p.id === response[i]),
-          inputId
+          inputId,
+          stepNum: i
         };
         addressStepsOrders.push(i);
         addressSteps.push({
