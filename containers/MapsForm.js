@@ -1,12 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import { change, getFormValues, Field, reduxForm, untouch } from 'redux-form';
 
 import {
-  Button,
-  ButtonOutline,
   Close,
   Container,
   Heading,
@@ -24,19 +21,9 @@ import DraggableList from '../components/DraggableList';
 import Drawer from '../components/Drawer';
 import Page from '../components/Page';
 
-const ButtonOutlineWithCustomStyles = styled(ButtonOutline)`
-  :hover {
-    border-color: #19b5fe;
-    color: #19b5fe;
-    opacity: 0.6
-  }
-`;
+import ButtonOutlineWithCustomStyles from '../components/styled/ButtonOutlineWithCustomStyles';
+import ButtonWithCustomStyles from '../components/styled/ButtonWithCustomStyles';
 
-const ButtonWithCustomStyles = styled(Button)`
-  :hover {
-    opacity: 0.6
-  }
-`;
 
 // Redux
 import {
