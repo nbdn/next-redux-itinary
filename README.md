@@ -21,7 +21,7 @@ This project is built with :
 
 ## Demo
 
-You can see the live demo of the timeline on [Heroku](https://next-redux-itinary.herokuapp.com/).
+You can see the live demo of the itinary app on [Heroku](https://next-redux-itinary.herokuapp.com/).
 
 You can customize the itinary by filling the form, or by adding Google place ids to the url with the following format:
 
