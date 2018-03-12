@@ -1,5 +1,7 @@
 import { injectGlobal } from 'styled-components';
 
+import Colors from '../../theme/Colors';
+
 injectGlobal`
 
 .draggable {
@@ -15,7 +17,7 @@ injectGlobal`
   transform-origin: 50% 50% 0px;
   border-radius: 4px;
   font-weight: 400;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: ${Colors.transparent};
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
 

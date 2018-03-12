@@ -15,6 +15,9 @@ import {
   Text
 } from 'rebass';
 
+// Theme
+import Colors from '../theme/Colors';
+
 // Components
 import AutoCompleteInput from '../components/AutoCompleteInput';
 import DraggableList from '../components/DraggableList';
@@ -129,10 +132,10 @@ class MapsForm extends Component {
             <Relative left={15} top={48}>
               <Link
                 onClick={() => this.removeStep(adr.id)}
-                bg={'#e74c3c'}
+                bg={Colors.error}
                 p={1}
                 pb={2}
-                color={'white'}
+                color={Colors.snow}
               >
                 <Close fontSize={25} />
               </Link>
@@ -217,7 +220,7 @@ class MapsForm extends Component {
       <Fragment>
         <Drawer>
           <Heading
-            bg="#19b5fe"
+            bg={Colors.primary}
             color="white"
             mb={20}
             p={20}
@@ -239,7 +242,7 @@ class MapsForm extends Component {
                   Your itinary :
                 </Subhead>
                 <Subhead mb={15}>
-                  <Text color={'#7f8c8d'} fontSize={1}>
+                  <Text color={Colors.secondary} fontSize={1}>
                     You can reorder inputs by dragging the labels.
                   </Text>
                 </Subhead>
@@ -252,7 +255,7 @@ class MapsForm extends Component {
                     {this.buildInputs(addressSteps)}
                   </DraggableList>
                   {(formError || optimizedFormError) && (
-                    <Text color={'#e74c3c'}>
+                    <Text color={Colors.error}>
                       {formError || optimizedFormError}
                     </Text>
                   )}
@@ -260,15 +263,14 @@ class MapsForm extends Component {
                 <Flex justifyContent="center" mt={5} mb={30} mr={30}>
                   <Group>
                     <ButtonOutlineWithCustomStyles
-                      color="#19b5fe"
-                      is="a"
+                      color={Colors.primary}
                       width={1 / 2}
                       onClick={this.addItinaryStep}
                     >
                       <Text>Add step</Text>
                     </ButtonOutlineWithCustomStyles>
                     <ButtonWithCustomStyles
-                      bg="#19b5fe"
+                      bg={Colors.primary}
                       width={1 / 2}
                       onClick={this.optimizeItinary}
                     >
@@ -277,7 +279,7 @@ class MapsForm extends Component {
                   </Group>
                 </Flex>
                 <Subhead mb={30}>
-                  <Text color={'#7f8c8d'} fontSize={1}>
+                  <Text color={Colors.secondary} fontSize={1}>
                     See the Github repository{' '}
                     <a
                       href="https://github.com/nbdn/next-redux-itinary"
