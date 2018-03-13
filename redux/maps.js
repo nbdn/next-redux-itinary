@@ -158,4 +158,20 @@ export const getOrderedPlacesIds = createSelector(getPlaces, places =>
     .map(p => p.id)
 );
 
+export const isFormValid = createSelector(
+  [getAddressSteps, getPlaces],
+  (addressSteps, places) => {
+    let isValid = true;
+    if (!addressSteps || !addressSteps.length) {
+      return false;
+    }
+    addressSteps.forEach(adr => {
+      if (!places.find(p => p.inputId === adr.id)) {
+        isValid = false;
+      }
+    });
+    return isValid;
+  }
+);
+
 export default { [NAME]: reducer };

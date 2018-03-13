@@ -38,6 +38,7 @@ import {
   getFetching,
   getFetchingOptimize,
   initForm,
+  isFormValid,
   optimizeItinary,
   removePlace,
   updatePlacesOrder
@@ -65,9 +66,7 @@ class MapsForm extends Component {
   }
 
   addItinaryStep = () => {
-    const { addAddressStep } = this.props;
-
-    const isFormValid = this.isFormValid();
+    const { addAddressStep, isFormValid } = this.props;
 
     if (!isFormValid) {
       this.setState({
@@ -155,29 +154,8 @@ class MapsForm extends Component {
     }
   }
 
-  isFormValid = () => {
-    const { formValues = {} } = this.props;
-    this.setState({ formError: undefined });
-    let isValid = true;
-    const { addressSteps: stateAddressSteps } = this.props;
-    const addressKeys = Object.keys(formValues);
-
-    if (!addressKeys || addressKeys.length !== stateAddressSteps.length) {
-      return false;
-    }
-
-    addressKeys.forEach(key => {
-      const adr = formValues[key];
-      if (!adr || typeof adr !== 'string' || adr.trim().length < 2) {
-        isValid = false;
-      }
-    });
-    return isValid;
-  };
-
   optimizeItinary = () => {
-    const { formValues, optimizeItinary } = this.props;
-    const isFormValid = this.isFormValid();
+    const { isFormValid, formValues, optimizeItinary } = this.props;
 
     if (!isFormValid) {
       this.setState({
@@ -214,7 +192,6 @@ class MapsForm extends Component {
     } = this.props;
 
     const { formError } = this.state;
-
     return (
       <Fragment>
         <Drawer>
@@ -310,6 +287,7 @@ MapsForm.propTypes = {
   initialAddresses: PropTypes.array,
   initForm: PropTypes.func,
   initFormError: PropTypes.string,
+  isFormValid: PropTypes.bool,
   optimizeItinary: PropTypes.func,
   optimizedFormError: PropTypes.string,
   removePlace: PropTypes.func,
@@ -324,6 +302,7 @@ const mapStateToProps = state => {
     addressSteps: getAddressSteps(state),
     getAddressStepsOrders: getAddressStepsOrders(state),
     initFormError: getInitError(state),
+    isFormValid: isFormValid(state),
     optimizedFormError: getOptimizedError(state),
     fetchingInit: getFetching(state),
     fetchingOptimize: getFetchingOptimize(state),
