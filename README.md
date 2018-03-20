@@ -36,6 +36,7 @@ uwuFv5kcRamCUXhoPOhI,ChIJd8y5Qzlu5kcRijTUmkvheew,ChIJ270fenJu5kcRV2qNT7_VbF0
 
 * Clone this repo
 * Run `npm install`
+* The project uses dotenv for handling environment variables. Rename `.env.sample` to `.env` and replace the GOOGLE_API_KEY with your own.
 * Once dependencies installed, run `npm start` (production) or `npm run dev` (development)
 * Open your browser at `http://localhost:3000`
 
@@ -45,8 +46,6 @@ Just run : `npm run test`
 
 ## Ways to improve
 
-* Improve form error handling
-* Set GOOGLE_API_KEY as env variable
 * End unit testing
 * Add end to end testing
 * Improve responsive
