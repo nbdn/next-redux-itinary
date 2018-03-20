@@ -10,6 +10,12 @@ const handle = n.getRequestHandler();
 const API_ROUTES = ['/itinary/optimize'];
 
 n.prepare().then(() => {
+  if (!process.env.GOOGLE_API_KEY) {
+    throw new Error(
+      'Project setup: you must create a .env file containing a valid GOOGLE_API_KEY parameter.'
+    );
+  }
+
   const app = new Koa();
   const router = new Router();
 
@@ -38,12 +44,10 @@ n.prepare().then(() => {
 
 // Optimize itinary route :
 
-const GOOGLE_API_KEY = 'AIzaSyAmbWDDtZLseI0s7hHee51RAieFnQGrSqs';
-
 const buildOptimizeUrl = (start, end, waypoints) =>
   `https://maps.googleapis.com/maps/api/directions/json?origin=place_id:${start}&destination=place_id:${end}&waypoints=optimize:true|place_id:${waypoints.join(
     '|place_id:'
-  )}&key=${GOOGLE_API_KEY}`;
+  )}&key=${process.env.GOOGLE_API_KEY}`;
 
 const fetchOptimizedItinary = (start, end, placesIds) =>
   new Promise((resolve, reject) => {
