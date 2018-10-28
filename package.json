@@ -9,7 +9,8 @@
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
     "prestart": "next build",
-    "lint": "eslint ./**/* --fix",
+    "lint":
+      "eslint . --ignore-path '.gitignore' --ignore-pattern 'jest.*' --ignore-pattern 'static/*' --fix",
     "prettier":
       "prettier --single-quote --write '{,!(.next)/**/}*.{js,json,jsx,md}' "
   },
@@ -40,11 +41,7 @@
     "styled-components": "^3.3.3"
   },
   "lint-staged": {
-    "./**/*{js,jsx,json,css}": [
-      "npm run prettier",
-      "eslint ./**/* --fix",
-      "git add"
-    ]
+    "*.js": ["npm run prettier", "npm run lint --", "git add"]
   },
   "devDependencies": {
     "babel-eslint": "8.2.2",
