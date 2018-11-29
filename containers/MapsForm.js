@@ -7,7 +7,6 @@ import {
   Close,
   Container,
   Heading,
-  Link,
   Flex,
   Group,
   Relative,
@@ -108,7 +107,11 @@ class MapsForm extends Component {
 
   buildInputs = addressSteps =>
     addressSteps.map(adr => (
-      <Flex key={`adr_children_${adr.id}`} order={adr.stepNum}>
+      <Flex
+        alignItems="center"
+        key={`adr_children_${adr.id}`}
+        order={adr.stepNum}
+      >
         <Flex flex={7}>
           <Field
             key={`adr_${adr.id}`}
@@ -126,18 +129,8 @@ class MapsForm extends Component {
           />
         </Flex>
         {!adr.required && (
-          <Flex flex={1}>
-            <Relative left={15} top={48}>
-              <Link
-                onClick={() => this.removeStep(adr.id)}
-                bg={Colors.error}
-                p={1}
-                pb={2}
-                color={Colors.snow}
-              >
-                <Close fontSize={25} />
-              </Link>
-            </Relative>
+          <Flex flex={1} mt={2}>
+            <Close fontSize={25} onClick={() => this.removeStep(adr.id)} />
           </Flex>
         )}
       </Flex>
@@ -223,13 +216,15 @@ class MapsForm extends Component {
                   </Text>
                 </Subhead>
                 <form onSubmit={handleSubmit}>
-                  <DraggableList
-                    draggableHeight={'30px'}
-                    draggableWidth={'100%'}
-                    updateOrders={this.updateInputOrders}
-                  >
-                    {this.buildInputs(addressSteps)}
-                  </DraggableList>
+                  <Relative>
+                    <DraggableList
+                      draggableHeight={'30px'}
+                      draggableWidth={'100%'}
+                      updateOrders={this.updateInputOrders}
+                    >
+                      {this.buildInputs(addressSteps)}
+                    </DraggableList>
+                  </Relative>
                   {(formError || optimizedFormError) && (
                     <Text color={Colors.error}>
                       {formError || optimizedFormError}

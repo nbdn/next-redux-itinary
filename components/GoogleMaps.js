@@ -29,9 +29,7 @@ const GoogleMapsComponent = withGoogleMap(({ directions, places, zoom }) => {
 });
 
 GoogleMapsComponent.defaultProps = {
-  containerElement: (
-    <div style={{ height: '100vh', width: '80vw', marginLeft: '20vw' }} />
-  ),
+  containerElement: <div style={{ height: '100vh', width: '80vw' }} />,
   mapElement: <div style={{ height: '100%' }} />,
   zoom: 13,
   places: []

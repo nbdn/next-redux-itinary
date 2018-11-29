@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Flex } from 'rebass';
 
 // Containers
 import MapsContainer from '../containers/Maps';
@@ -39,8 +40,13 @@ class Maps extends Component {
     return (
       <Fragment>
         <GoogleScriptProvider>
-          <MapsForm initialAddresses={addresses} onSubmit={this.showResults} />
-          <MapsContainer />
+          <Flex>
+            <MapsForm
+              initialAddresses={addresses}
+              onSubmit={this.showResults}
+            />
+            <MapsContainer />
+          </Flex>
         </GoogleScriptProvider>
       </Fragment>
     );
